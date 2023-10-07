@@ -21,20 +21,23 @@ export default function pokemonDetalle () {
   const url = `https://pokeapi.co/api/v2/pokemon/${name}`; // url con variable rescatada de useParams
 
   async function datosPokemom() {
-    const response = await fetch(url);
-    const data = await response.json();
-    const numero = data.id;
-    const experiencia = data.base_experience;
-    const imagen = data.sprites.other.dream_world.front_default;
-    const stats = data.stats.map(index => ({
-      nombre: index.stat.name,
-      base: index.base_stat,
-    })
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const numero = data.id;
+      const experiencia = data.base_experience;
+      const imagen = data.sprites.other.dream_world.front_default;
+      const stats = data.stats.map(index => ({
+        nombre: index.stat.name,
+        base: index.base_stat,
+      })
     );
     const type = data.types.map(index => index.type.name )
 
     setPokemon({ name, numero, experiencia, stats, type, imagen }); // actualización del estado
-  }
+  } catch(error) {
+    console.log(error)
+  }}
 
   useEffect(() => {
     datosPokemom()
@@ -46,7 +49,7 @@ export default function pokemonDetalle () {
         <Container>
           <Row>
             <Col>
-              <Image src={pokemon.imagen} fluid style={{width: '29rem'}} />
+              <Image src={pokemon.imagen} fluid style={{width: '25rem'}} />
             </Col>
             <Col>
               <Card style={{width : '20rem'}}>

@@ -12,9 +12,13 @@ const Pokemones = () => {
 
   // uso de asycn await y método fetch
   async function pokenames() {
-    const res = await fetch(url);
-    const data = await res.json();
-    setListaDatos([...data.results]);
+    try{
+      const res = await fetch(url);
+      const data = await res.json();
+      setListaDatos([...data.results]);
+      } catch(error) {
+        console.log(error);
+    }
   }
 
   const buscarPokemon = () => {
