@@ -25,7 +25,7 @@ const Pokemones = () => {
     if(name) {
       navigate(`/pokemonDetalle/${name}`); // se redirecciona
     } else {
-      alert('Seleecione una opción')
+      navigate('/notFount');
     }
   }
 
