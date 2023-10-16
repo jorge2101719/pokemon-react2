@@ -36,7 +36,7 @@ const Pokemones = () => {
   const handleId = (e) => setName(e.target.value)
 
   return (
-    <div className="mt-5 pt-3 detalles">
+    <div className="mt-0 mb-3 pb-3 pt-3 detalles">
       <h1>Busca tu pokemón favorito</h1>
       <select
         className="mt-5 p-1"
@@ -46,7 +46,7 @@ const Pokemones = () => {
         <option value='dislable'>Seleccione un pokemón</option>
         {listaDatos.map((index, i) => <option key={i} value={index.name}>{index.name}</option>)}
       </select>
-      <button onClick={ buscarPokemon } className="mt-5 text-bg-success">Ver Deatalles</button>
+      <button onClick={ buscarPokemon } className="mt-5 text-bg-success">Ver Detalles</button>
     </div>
   )
   }

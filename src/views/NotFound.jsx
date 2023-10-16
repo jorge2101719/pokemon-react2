@@ -8,13 +8,13 @@ import { useNavigate } from 'react-router-dom';
 export default function NotFound() {
   const navigate = useNavigate();
   return (
-    <div>
+    <div className='pb-3'>
       <Container>
         <Row>
           <Col>
             <Image src='img/18.jpg' fluid />
           </Col>
-          <Col>
+          <Col className='fs-1 fw-bold'>
             Al parecer se equivocó de nombre, o bien la ruta es errónea. Por favor, vuelva a intertarlo
           </Col>
         </Row>
